@@ -1,0 +1,159 @@
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+  <div class="wrapper wrapper--w960">
+    <div class="card card-4">
+      <div class="card-body">
+        <form [formGroup]="formularioGiras" method="POST" (submit)="onSubmit()">
+          <!-- Información de la gira -->
+          <h2 class="title text-center py-2 mb-4 bg-body-secondary rounded-2">Información de la <strong>gira</strong></h2>
+          <div class="fila fila-space">
+            <div class="colu-2">
+              <div class="input-group">
+                <label class="label">Id. de la gira</label>
+                <input class="input--style-4" type="text" name="giraId" formControlName="giraId" autofocus>
+              </div>
+            </div>
+            <div class="colu-2">
+              <div class="input-group">
+                <label class="label">Nombre</label>
+                <input class="input--style-4" type="text" name="giraNombre" formControlName="giraNombre">
+              </div>
+            </div>
+          </div>
+          <div class="fila">
+            <div class="input-group d-block">
+              <label class="label py-2">Grupo / Artista</label>
+              <div class="rs-select2 js-select-simple select--no-search">
+                <select class="input--style-4 py-2 w-100" name="giraGrupo" formControlName="giraGrupo">
+                  <option disabled>Elija el grupo/artista</option>
+                  <option>Grupo / Artista nº 1</option>
+                  <option>Grupo / Artista nº 2</option>
+                  <option>Grupo / Artista nº 3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="fila fila-space mb-3">
+            <div class="colu-2">
+              <div class="input-group d-block">
+                <label class="label">Fecha de inicio</label>
+                <div class="input-group">
+                  <input class="input--style-4 js-datepicker" type="date" name="giraFechaInicio" formControlName="giraFechaInicio">
+                </div>
+              </div>
+            </div><div class="colu-2">
+              <div class="input-group d-block">
+                <label class="label">Fecha de finalización</label>
+                <div class="input-group">
+                  <input class="input--style-4 js-datepicker" type="date" name="giraFechaFin" formControlName="giraFechaFin">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Información de los conciertos -->
+          <h2 class="title text-center py-2 mb-4 bg-body-secondary rounded-2">Información de los <strong>conciertos</strong></h2>
+          <div class="fila fila-space">
+            <div class="colu-2">
+              <div class="input-group">
+                <label class="label">id. del concierto</label>
+                <input class="input--style-4" type="text" name="conciertoId" formControlName="conciertoId">
+              </div>
+            </div>
+            <div class="colu-2">
+              <div class="input-group d-block">
+                <label class="label">Fecha del concierto</label>
+                <div class="input-group">
+                  <input class="input--style-4 js-datepicker" type="date" name="conciertoFecha" formControlName="conciertoFecha">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fila fila-space">
+            <div class="colu-2">
+              <div class="input-group">
+                <label class="label">Pais</label>
+                <input class="input--style-4" type="text" name="conciertoPais" formControlName="conciertoPais">
+              </div>
+            </div>
+            <div class="colu-2">
+              <div class="input-group">
+                <label class="label">Ciudad</label>
+                <input class="input--style-4" type="text" name="conciertoCiudad" formControlName="conciertoCiudad">
+              </div>
+            </div>
+          </div>
+          <div class="input-group d-block">
+            <label class="label">Dirección</label>
+            <input class="input--style-4" type="text" name="conciertoDireccion" formControlName="conciertoDireccion">
+          </div>
+          <!--Botones para listado de conciertos-->
+          <div class="d-flex">
+            <div class="btn-group" role="group" aria-label="Botones conciertos">
+              <button type="button" class="btn btn-outline-primary" id="btAnadir" (click)="anadeConcierto()"><i class="fa-solid fa-plus"></i></button>
+              <button type="button" class="btn btn-outline-primary" id="btModificar" disabled (click)="modificarConcierto()"><i class="fa-solid fa-pen-to-square"></i></button>
+              <button type="button" class="btn btn-outline-success" id="btConfirmar" (click)="confirmarModificacion()"><i class="fa-solid fa-check"></i></button>
+              <button type="button" class="btn btn-outline-success" id="btCancelar" (click)="salirModificacion()"><i class="fa-solid fa-xmark"></i></button>
+              <button type="button" class="btn btn-outline-primary" id="btEliminar" disabled (click)="eliminaConcierto()"><i class="fa-solid fa-trash"></i></button>
+            </div>
+          </div>
+          <!--Listado de conciertos-->
+          <div class="d-block mb-4">
+            <table class="table table-light table-hover border border-dark mb-0" id="tablaConciertos" style="font-size: .75rem;">
+              <thead>
+                <tr class="table-dark text-white">
+                  <th style="width:3%"><input class="form-check-input" type="checkbox" id="cbTodosConciertos" (change)="selecTodosConciertos()"></th>
+                  <th style="width:7%">Id.</th>
+                  <th style="width:15%">Fecha</th>
+                  <th style="width:15%">País</th>
+                  <th style="width:15%">Ciudad</th>
+                  <th style="width:45%">Dirección</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox"></td>
+                  <th>1</th>
+                  <td>2004-05-01</td>
+                  <td>España</td>
+                  <td>Zaragoza</td>
+                  <td>Auditorio de Zaragoza</td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox"></td>
+                  <th>2</th>
+                  <td>2004-05-01</td>
+                  <td>España</td>
+                  <td>Zaragoza</td>
+                  <td>Auditorio de Zaragoza</td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox"></td>
+                  <th>3</th>
+                  <td>2004-05-01</td>
+                  <td>España</td>
+                  <td>Zaragoza</td>
+                  <td>Auditorio de Zaragoza</td>
+                </tr>
+                <tr>
+                  <td><input class="form-check-input" type="checkbox"></td>
+                  <th>4</th>
+                  <td>2004-05-01</td>
+                  <td>España</td>
+                  <td>Zaragoza</td>
+                  <td>Auditorio de Zaragoza</td>
+                </tr>
+              </tbody>
+            </table>
+            <span *ngIf="this.numConciertos == 0">No hay conciertos</span>
+          </div>
+          <!--botón Enviar-->
+          <div class="d-flex justify-content-center">
+            <button class="botn botn--radius-2 botn--blue" type="submit">Enviar</button>
+            <!--<button class="btn btn-primary fs-5 px-5 py-2" type="submit">Enviar</button>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

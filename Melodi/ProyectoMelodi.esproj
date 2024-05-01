@@ -7,4 +7,8 @@
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\Melodi\</BuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="src\app\NewFolder1\**" />
+    <TypeScriptConfiguration Remove="src\app\NewFolder1\**" />
+  </ItemGroup>
 </Project>
