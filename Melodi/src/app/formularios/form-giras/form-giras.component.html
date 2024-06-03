@@ -88,11 +88,11 @@
           <!--Botones para listado de conciertos-->
           <div class="d-flex">
             <div class="btn-group" role="group" aria-label="Botones conciertos">
-              <button type="button" class="btn btn-outline-primary" id="btAnadir" (click)="anadeConcierto()"><i class="fa-solid fa-plus"></i></button>
-              <button type="button" class="btn btn-outline-primary" id="btModificar" disabled (click)="modificarConcierto()"><i class="fa-solid fa-pen-to-square"></i></button>
-              <button type="button" class="btn btn-outline-success" id="btConfirmar" (click)="confirmarModificacion()"><i class="fa-solid fa-check"></i></button>
-              <button type="button" class="btn btn-outline-success" id="btCancelar" (click)="salirModificacion()"><i class="fa-solid fa-xmark"></i></button>
-              <button type="button" class="btn btn-outline-primary" id="btEliminar" disabled (click)="eliminaConcierto()"><i class="fa-solid fa-trash"></i></button>
+              <button type="button" class="btn btn-outline-primary" id="btAnadir" title="Añadir concierto" (click)="anadeConcierto()"><i class="fa-solid fa-plus"></i></button>
+              <button type="button" class="btn btn-outline-primary" id="btModificar" title="Modificar concierto" disabled (click)="modificarConcierto()"><i class="fa-solid fa-pen-to-square"></i></button>
+              <button type="button" class="btn btn-outline-success" id="btConfirmar" title="Guardar Modificación" (click)="confirmarModificacion()"><i class="fa-solid fa-check"></i></button>
+              <button type="button" class="btn btn-outline-success" id="btCancelar" title="Cancelar Modificación" (click)="salirModificacion()"><i class="fa-solid fa-xmark"></i></button>
+              <button type="button" class="btn btn-outline-primary" id="btEliminar" title="Eliminar concierto" disabled (click)="eliminaConcierto()"><i class="fa-solid fa-trash"></i></button>
             </div>
           </div>
           <!--Listado de conciertos-->
